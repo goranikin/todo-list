@@ -41,3 +41,21 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.container {
+  border-color: red;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  font-size: 30px;
+  justify-content: center;
+  display: flex;
+}
+
+.left-wrapper {
+  flex: 1;
+}
+
+.right-wrapper {
+  flex: 1;
+}
