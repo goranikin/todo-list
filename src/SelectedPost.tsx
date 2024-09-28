@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { fetchPost, fetchReply } from './fetchFunction';
 import type { PostResponse, ReplyResponse } from './types.ts';
+import styles from './SelectedPost.module.css';
 
 export default function ParentComponent({
   selectedPostId,
@@ -29,9 +30,9 @@ export default function ParentComponent({
   if (isLoading) {
     return (
       <>
-        <h2 className="gloria-hallelujah-regular">Content</h2>
+        <h2 className={styles.gloria}>Content</h2>
         <p>Loading...</p>
-        <h2 className="gloria-hallelujah-regular">Reply</h2>
+        <h2 className={styles.gloria}>Reply</h2>
         <p>Loading...</p>
       </>
     );
@@ -39,16 +40,20 @@ export default function ParentComponent({
 
   return (
     <>
-      <h2 className="gloria-hallelujah-regular">Content</h2>
+      <h2 className={styles.gloria}>Content</h2>
       <SelectedPostResponse post={postData} />
-      <h2 className="gloria-hallelujah-regular">Reply</h2>
+      <h2 className={styles.gloria}>Reply</h2>
       <SelectedReplyResponse replies={replyData} />
     </>
   );
 }
 
 function SelectedPostResponse({ post }: { post: PostResponse | undefined }) {
-  return <p>{post != undefined ? post.body : 'No content available'}</p>;
+  return (
+    <p className={styles.indie}>
+      {post != undefined ? post.body : 'No content available'}
+    </p>
+  );
 }
 
 function SelectedReplyResponse({
@@ -60,7 +65,7 @@ function SelectedReplyResponse({
     <>
       {replies != undefined && replies.length > 0 ? (
         replies.map((reply) => (
-          <div key={reply.id}>
+          <div key={reply.id} className={styles.indie}>
             <p>
               <span className="font-bold">writer: </span>
               {reply.email}
@@ -69,7 +74,7 @@ function SelectedReplyResponse({
           </div>
         ))
       ) : (
-        <p>No replies available</p>
+        <p className={styles.indie}>No replies available</p>
       )}
     </>
   );

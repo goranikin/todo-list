@@ -31,7 +31,7 @@ export const App = () => {
             })}
           </div>
           <div className="middle-line"></div>
-          <div className="right-wrapper indie-flower-regular">
+          <div className="right-wrapper">
             <SelectedPost selectedPostId={selectedPostId} />
           </div>
         </div>
