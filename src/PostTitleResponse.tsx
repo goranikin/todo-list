@@ -12,8 +12,7 @@ export const PostTitleItem = ({ id }: { id: string }) => {
       .then((data) => {
         if (!ignore) setPost(data);
       })
-      .catch(() => {
-      });
+      .catch(() => {});
     return () => {
       ignore = true;
     };
