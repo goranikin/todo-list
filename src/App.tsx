@@ -3,8 +3,7 @@ import './reset.css';
 import { useState } from 'react';
 
 import { PostTitleItem } from './PostTitleResponse.tsx';
-import SelectedPostResponse from './SelectedPostResponse.tsx';
-import SelectedReplyResponse from './SelectedReplyResponse.tsx';
+import SelectedPost from './SelectedPost.tsx';
 
 export const App = () => {
   const [selectedPostId, setSelectedPostId] = useState<string>('1');
@@ -20,22 +19,20 @@ export const App = () => {
               return (
                 <button
                   key={id}
-                  className="title cursor-pointer indie-flower-regular"
+                  className={`title cursor-pointer indie-flower-regular ${selectedPostId === id ? 'selected' : ''}`}
                   onClick={() => {
                     setSelectedPostId(id);
                   }}
                 >
-                  {id}. {PostTitleItem({ id })}
+                  <span>{id}. </span>
+                  <span>{PostTitleItem({ id })}</span>
                 </button>
               );
             })}
           </div>
           <div className="middle-line"></div>
           <div className="right-wrapper indie-flower-regular">
-            <h2 className="gloria-hallelujah-regular">Content</h2>
-            <SelectedPostResponse selectedPostId={selectedPostId} />
-            <h2 className="gloria-hallelujah-regular">Reply</h2>
-            <SelectedReplyResponse selectedPostId={selectedPostId} />
+            <SelectedPost selectedPostId={selectedPostId} />
           </div>
         </div>
       </div>

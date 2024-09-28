@@ -29,7 +29,10 @@ export default function SelectedReplyResponse({
       {replies.length > 0 ? (
         replies.map((reply) => (
           <div key={reply.id}>
-            <p>writer: {reply.email}</p>
+            <p>
+              <span className="font-bold">writer: </span>
+              {reply.email}
+            </p>
             <p>{reply.body}</p>
           </div>
         ))

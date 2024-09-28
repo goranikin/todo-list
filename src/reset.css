@@ -99,6 +99,12 @@ h2 {
   border-radius: 10px;
   border-width: 1px;
   margin: 5px;
+  transition: color 0.3s ease;
+}
+
+.title:hover:not(.selected) {
+  color: #808080;
+  border-color: #808080;
 }
 
 .cursor-pointer {
@@ -108,4 +114,15 @@ h2 {
 .middle-line {
   width: 0.125rem;
   background-color: gray;
+}
+
+.selected {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  color: #333;
+  border-width: 1.5px;
+}
+
+.font-bold {
+  font-weight: bold;
 }
