@@ -1,22 +1,39 @@
 import './reset.css';
 
-import { PostItem } from './PostResponse.tsx';
+import { useState } from 'react';
+
+import { PostTitleItem } from './PostTitleResponse.tsx';
+import SelectedPost from './SelectedPost.tsx';
 
 export const App = () => {
+  const [selectedPostId, setSelectedPostId] = useState<string>('1');
+
   return (
     <div>
       <div className="container">
-        <div className="left-wrapper">
-          <h2>포스트 목록</h2>
-          <ol>
-            {PostItem({ id: 1 })}
-            {PostItem({ id: 2 })}
-            {PostItem({ id: 3 })}
-          </ol>
-        </div>
-        <div className="right-wrapper">
-          <h2>내용</h2>
-          <h2>댓글</h2>
+        <div className="wrapper">
+          <div className="left-wrapper">
+            <h2 className="gloria-hallelujah-regular">Post Index</h2>
+            {Array.from({ length: 100 }, (_, index: number) => {
+              const id = (index + 1).toString();
+              return (
+                <button
+                  key={id}
+                  className={`title cursor-pointer indie-flower-regular ${selectedPostId === id ? 'selected' : ''}`}
+                  onClick={() => {
+                    setSelectedPostId(id);
+                  }}
+                >
+                  <span>{id}. </span>
+                  <span>{PostTitleItem({ id })}</span>
+                </button>
+              );
+            })}
+          </div>
+          <div className="middle-line"></div>
+          <div className="right-wrapper">
+            <SelectedPost selectedPostId={selectedPostId} />
+          </div>
         </div>
       </div>
     </div>

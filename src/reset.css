@@ -36,7 +36,28 @@ h4,
 h5,
 h6 {
   overflow-wrap: break-word;
+  padding: 5px;
 }
+
+h2 {
+  border-bottom: 1px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+}
+
+.gloria-hallelujah-regular {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.indie-flower-regular {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+}
+
 #root,
 #__next {
   isolation: isolate;
@@ -47,15 +68,61 @@ h6 {
   border-style: solid;
   border-width: 2px;
   border-radius: 10px;
-  font-size: 30px;
-  justify-content: center;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.wrapper {
   display: flex;
+  justify-content: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
 }
 
 .left-wrapper {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
 }
 
 .right-wrapper {
-  flex: 1;
+  flex: 2.2;
+  padding: 33px;
+}
+
+.title {
+  background-color: white;
+  text-align: left;
+  border-radius: 10px;
+  border-width: 1px;
+  margin: 5px;
+  transition: color 0.3s ease;
+}
+
+.title:hover:not(.selected) {
+  color: #808080;
+  border-color: #808080;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.middle-line {
+  width: 0.125rem;
+  background-color: gray;
+}
+
+.selected {
+  background-color: #e0e0e0;
+  font-weight: bold;
+  color: #333;
+  border-width: 1.5px;
+}
+
+.font-bold {
+  font-weight: bold;
 }
