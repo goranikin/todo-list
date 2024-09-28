@@ -2,7 +2,7 @@ import './reset.css';
 
 import { useRef, useState } from 'react';
 
-import { PostTitleItem } from './PostTitleResponse.tsx';
+import { PostList } from './PostList.tsx';
 import SelectedPost from './SelectedPost.tsx';
 import { useKeyboardNavigation } from './useKeyboardNavigation.ts';
 import { useScrollIntoView } from './useScrollIntoView.ts';
@@ -20,23 +20,11 @@ export const App = () => {
       <div className="container">
         <div className="wrapper">
           <div className="left-wrapper" ref={containerRef}>
-            <h2 className="gloria-hallelujah-regular">Post Index</h2>
-            {Array.from({ length: 100 }, (_, index: number) => {
-              const id = (index + 1).toString();
-              return (
-                <button
-                  key={id}
-                  ref={selectedPostId === id ? selectedRef : null}
-                  className={`title cursor-pointer indie-flower-regular ${selectedPostId === id ? 'selected' : ''}`}
-                  onClick={() => {
-                    setSelectedPostId(id);
-                  }}
-                >
-                  <span>{id}. </span>
-                  <span>{PostTitleItem({ id })}</span>
-                </button>
-              );
-            })}
+            <PostList
+              selectedPostId={selectedPostId}
+              setSelectedPostId={setSelectedPostId}
+              selectedRef={selectedRef}
+            />
           </div>
           <div className="middle-line"></div>
           <div className="right-wrapper">
