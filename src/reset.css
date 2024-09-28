@@ -59,3 +59,15 @@ h6 {
 .right-wrapper {
   flex: 1;
 }
+
+.title {
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.middle-line {
+  width: 0.125rem;
+  background-color: gray;
+}
