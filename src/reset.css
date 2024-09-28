@@ -69,8 +69,8 @@ h2 {
   border-width: 2px;
   border-radius: 10px;
   font-size: 20px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 20px;
+
 }
 
 .wrapper {
@@ -79,6 +79,7 @@ h2 {
   border-width: 2px;
   border-style: solid;
   border-color: black;
+  height: 80vh;
 }
 
 .left-wrapper {
@@ -86,11 +87,29 @@ h2 {
   display: flex;
   flex-direction: column;
   padding: 30px;
+  overflow-y: auto;
 }
 
 .right-wrapper {
   flex: 2.2;
   padding: 33px;
+  overflow-y: auto;
+}
+
+/* 웹킷 기반 브라우저 (Chrome, Safari 등) */
+.left-wrapper::-webkit-scrollbar,
+.right-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.65);
 }
 
 .title {
@@ -99,7 +118,7 @@ h2 {
   border-radius: 10px;
   border-width: 1px;
   margin: 5px;
-  transition: color 0.3s ease;
+  transition: color 0.15s ease;
 }
 
 .title:hover:not(.selected) {

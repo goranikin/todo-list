@@ -70,7 +70,7 @@ function SelectedReplyResponse({
               <span className="font-bold">writer: </span>
               {reply.email}
             </p>
-            <p>{reply.body}</p>
+            <p className={styles.borderBottom}>{reply.body}</p>
           </div>
         ))
       ) : (

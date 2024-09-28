@@ -13,7 +13,6 @@ export const PostTitleItem = ({ id }: { id: string }) => {
         if (!ignore) setPost(data);
       })
       .catch(() => {
-        alert('페이지를 가져오지 못했습니다.');
       });
     return () => {
       ignore = true;
