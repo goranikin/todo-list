@@ -9,5 +9,5 @@ export const fetchPost = async (id: string) => {
 export const fetchReply = async (id: string) => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
   const response = await fetch(`${baseUrl}/posts/${id}/comments`);
-  return (await response.json()) as ReplyResponse;
+  return (await response.json()) as ReplyResponse[];
 };

@@ -4,15 +4,15 @@ import { fetchPost } from './fetchFunction.ts';
 import type { PostResponse } from './types';
 
 export default function SelectedPostResponse({
-  selectedPost,
+  selectedPostId,
 }: {
-  selectedPost: string;
+  selectedPostId: string;
 }) {
   const [post, setPost] = useState<PostResponse>();
 
   useEffect(() => {
     let ignore = false;
-    fetchPost(selectedPost)
+    fetchPost(selectedPostId)
       .then((data) => {
         if (!ignore) setPost(data);
       })
@@ -22,7 +22,7 @@ export default function SelectedPostResponse({
     return () => {
       ignore = true;
     };
-  }, [selectedPost]);
+  }, [selectedPostId]);
 
   return <p>{post != null ? post.body : 'Loading...'}</p>;
 }

@@ -4,30 +4,38 @@ import { fetchReply } from './fetchFunction.ts';
 import type { ReplyResponse } from './types';
 
 export default function SelectedReplyResponse({
-  selectedPost,
+  selectedPostId,
 }: {
-  selectedPost: string;
+  selectedPostId: string;
 }) {
-  const [reply, setReply] = useState<ReplyResponse>();
+  const [replies, setReplies] = useState<ReplyResponse[]>([]);
 
   useEffect(() => {
     let ignore = false;
-    fetchReply(selectedPost)
+    fetchReply(selectedPostId)
       .then((data) => {
-        if (!ignore) setReply(data);
+        if (!ignore) setReplies(data);
       })
       .catch(() => {
-        alert('페이지를 가져오지 못했습니다.');
+        alert('댓글을 가져오지 못했습니다.');
       });
     return () => {
       ignore = true;
     };
-  }, [selectedPost]);
+  }, [selectedPostId]);
 
   return (
     <>
-      <p>작성자: {reply != null ? reply.email : 'Loading...'}</p>
-      <p>{reply != null ? reply.body : 'Loading...'}</p>
+      {replies.length > 0 ? (
+        replies.map((reply) => (
+          <div key={reply.id}>
+            <p>writer: {reply.email}</p>
+            <p>{reply.body}</p>
+          </div>
+        ))
+      ) : (
+        <p>Loading...</p>
+      )}
     </>
   );
 }
