@@ -12,9 +12,7 @@ export const PostTitleItem = ({ id }: { id: string }) => {
       .then((data) => {
         if (!ignore) setPost(data);
       })
-      .catch(() => {
-        alert('페이지를 가져오지 못했습니다.');
-      });
+      .catch(() => {});
     return () => {
       ignore = true;
     };
