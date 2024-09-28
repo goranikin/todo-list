@@ -13,12 +13,12 @@ export const App = () => {
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'ArrowUp') {
-        setSelectedPostId(prevId => {
+        setSelectedPostId((prevId) => {
           const newId = Math.max(1, parseInt(prevId) - 1);
           return newId.toString();
         });
       } else if (event.key === 'ArrowDown') {
-        setSelectedPostId(prevId => {
+        setSelectedPostId((prevId) => {
           const newId = Math.min(100, parseInt(prevId) + 1);
           return newId.toString();
         });
@@ -32,7 +32,7 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
-    if ((selectedRef.current != null) && (containerRef.current != null)) {
+    if (selectedRef.current != null && containerRef.current != null) {
       const container = containerRef.current;
       const selected = selectedRef.current;
 
