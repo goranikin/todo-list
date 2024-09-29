@@ -155,6 +155,7 @@ h2 {
   .left-wrapper,
   .right-wrapper {
     width: 100%;
+    margin: 5px;
   }
 
   .left-wrapper {
