@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
-import { fetchPost } from './fetchFunction.ts';
-import type { PostResponse } from './types';
+import type { PostResponse } from '../entities/responseType.ts';
+import { fetchPost } from '../infrastructures/fetchFunction.ts';
 
-export const PostTitleItem = ({ id }: { id: string }) => {
+export const usePost = (id: string) => {
   const [post, setPost] = useState<PostResponse>();
 
   useEffect(() => {
@@ -18,5 +18,5 @@ export const PostTitleItem = ({ id }: { id: string }) => {
     };
   }, [id]);
 
-  return <>{post != null ? post.title : 'Loading...'}</>;
+  return post;
 };

@@ -1,11 +1,11 @@
-import './reset.css';
+import './styles/reset.css';
 
 import { useRef, useState } from 'react';
 
-import { PostList } from './PostList.tsx';
-import SelectedPost from './SelectedPost.tsx';
-import { useKeyboardNavigation } from './useKeyboardNavigation.ts';
-import { useScrollIntoView } from './useScrollIntoView.ts';
+import { useKeyboardNavigation } from './hooks/useKeyboardNavigation.ts';
+import { useScrollIntoView } from './hooks/useScrollIntoView.ts';
+import { PostList } from './views/PostList.tsx';
+import SelectedPost from './views/SelectedPost.tsx';
 
 export const App = () => {
   const [selectedPostId, setSelectedPostId] = useState<string>('1');

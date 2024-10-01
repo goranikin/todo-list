@@ -1,4 +1,4 @@
-import type { PostResponse, ReplyResponse } from './types';
+import type { PostResponse, ReplyResponse } from '../entities/responseType.ts';
 
 export const fetchPost = async (id: string) => {
   const baseUrl = 'https://jsonplaceholder.typicode.com';
