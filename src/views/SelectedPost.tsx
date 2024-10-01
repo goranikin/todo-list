@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { fetchPost, fetchReply } from './fetchFunction';
-import styles from './SelectedPost.module.css';
-import type { PostResponse, ReplyResponse } from './types.ts';
+import type { PostResponse, ReplyResponse } from '../entities/responseType.ts';
+import { fetchPost, fetchReply } from '../infrastructures/fetchFunction.ts';
+import styles from '../styles/SelectedPost.module.css';
 
 export default function ParentComponent({
   selectedPostId,

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PostTitleItem } from './PostTitleResponse';
+import { PostTitleItem } from './PostTitleResponse.tsx';
 
 interface PostListProps {
   selectedPostId: string;
